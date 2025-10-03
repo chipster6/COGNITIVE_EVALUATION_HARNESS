@@ -22,11 +22,20 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Compute lowercase repo for GHCR tag
         run: echo "REPO_LC=${GITHUB_REPOSITORY,,}" >> $GITHUB_ENV
+      - name: Resolve base image digest
+        run: |
+          BASE_IMAGE=python:3.12-slim-bookworm
+          echo "BASE_IMAGE=$BASE_IMAGE" >> $GITHUB_ENV
+          BASE_DIGEST=$(docker buildx imagetools inspect "$BASE_IMAGE" | awk '/Digest:/ {print $2; exit}')
+          echo "BASE_DIGEST=$BASE_DIGEST" >> $GITHUB_ENV
       - uses: docker/build-push-action@v5
         with:
           context: .devcontainer
           file: .devcontainer/Dockerfile
           push: true
           tags: ghcr.io/${{ env.REPO_LC }}/dev:latest
+          build-args: |
+            BASE_IMAGE=${{ env.BASE_IMAGE }}
+            BASE_DIGEST=${{ env.BASE_DIGEST }}
           provenance: true
           sbom: true

@@ -17,7 +17,11 @@ docker run --rm -it \
   ghcr.io/chipster6/COGNITIVE_EVALUATION_HARNESS/dev:latest
 ```
 
-Inside the container, validators are available:
-- markdownlint, yamllint, ajv, yq, node 20, python 3.11
+Inside the container, tools available:
+
+- yq (CLI)
+- Python 3.12
+
+Note: Node/ajv/mermaid are installed in CI or on host, not baked into the image.
 
 Optional: bake scripts/Makefile targets to orchestrate baselines in M2.

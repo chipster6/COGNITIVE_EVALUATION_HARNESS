@@ -1,4 +1,6 @@
-FROM python:3.12-slim-bookworm
+ARG BASE_IMAGE=python:3.12-slim-bookworm
+ARG BASE_DIGEST
+FROM ${BASE_IMAGE}${BASE_DIGEST:+@${BASE_DIGEST}}
 ENV PIP_NO_CACHE_DIR=1 PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
 RUN apt-get update \
  && apt-get -y upgrade \

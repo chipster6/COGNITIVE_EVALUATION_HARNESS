@@ -3,9 +3,11 @@
 Pattern: Master doc + modular sub-artifacts under docs/lifecycle/1-research/
 
 Purpose
+
 - Transform M0 intake into a research-grounded, testable definition with machine-readable hypotheses, evaluation design, baselines, governance mapping, data provenance, uncertainty handling, and review gates. Output is CI-validated and ready for M2 design.
 
 Outcomes
+
 - Literature review and prior-art survey with citations and links
 - Falsifiable, measurable hypotheses in YAML with targets and tolerances
 - Evaluation design for probe families, metrics, scoring, and reproducibility
@@ -17,6 +19,7 @@ Outcomes
 - Review checklist and PR policy for “Ready for M2”
 
 Deliverables (files in this checkpoint)
+
 - docs/lifecycle/1-research/<FEATURE>_research.md — Research Notes
 - docs/lifecycle/1-research/<FEATURE>_hypotheses.yaml — Hypotheses
 - docs/lifecycle/1-research/<FEATURE>_eval_design.md — Evaluation Design

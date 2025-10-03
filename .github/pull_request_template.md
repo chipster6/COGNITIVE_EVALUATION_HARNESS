@@ -21,6 +21,7 @@ Explain the change.
 ---
 
 ## M1 Research Checklist for <FEATURE>
+
 - [ ] Research notes include ≥6 references with links
 - [ ] Hypotheses YAML passes schema; numeric targets/tolerances/tests present
 - [ ] Evaluation design documented; probes, metrics, seeds, reproducibility
