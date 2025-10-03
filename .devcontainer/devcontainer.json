@@ -1,0 +1,7 @@
+{
+  "name": "neoprompt-eval",
+  "build": { "dockerfile": "Dockerfile", "context": ".devcontainer" },
+  "remoteUser": "dev",
+  "workspaceFolder": "/work",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/work,type=bind"
+}

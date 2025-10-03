@@ -1,0 +1,43 @@
+name: M1 Research Validation
+on:
+  pull_request:
+    paths:
+      - "docs/lifecycle/1-research/**"
+      - "docs/templates/**"
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup node & python
+        uses: actions/setup-node@v4
+        with: { node-version: "22" }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+
+      - name: Install validators
+        run: |
+          npm i -g ajv-cli@5.0.0 ajv-formats@3
+          pipx install yamllint
+          pipx install markdownlint-cli
+          sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Lint Markdown
+        run: markdownlint "docs/**/*.md" || true
+
+      - name: Lint YAML
+        run: yamllint docs/lifecycle/1-research || true
+
+      - name: Validate Hypotheses YAML
+        run: |
+          yq -o=json docs/lifecycle/1-research/*_hypotheses.yaml > /tmp/hyp.json
+          ajv -c ajv-formats --spec=draft7 validate -s docs/templates/hypotheses.schema.json -d /tmp/hyp.json
+
+      - name: Validate Baseline JSON
+        run: ajv -c ajv-formats --spec=draft7 validate -s docs/templates/baseline.schema.json -d docs/lifecycle/1-research/*_baseline.json
+
+      - name: Validate Governance Mapping YAML
+        run: |
+          yq -o=json docs/lifecycle/1-research/*_governance.yaml > /tmp/gov.json
+          ajv -c ajv-formats --spec=draft7 validate -s docs/templates/govmap.schema.json -d /tmp/gov.json

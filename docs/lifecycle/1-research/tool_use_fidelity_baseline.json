@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0.0",
+  "feature_id": "tool_use_fidelity",
+  "dataset": {
+    "id": "mock_api_calls",
+    "version": "v0.3",
+    "checksum": "4b7f1b9a1d7a0a6c2a1b3b4d6b2f1c9d8e7a6b4c2d1e0f9a"
+  },
+  "runs": [
+    {
+      "model_id": "qwen-2.5-instruct",
+      "provider": "openrouter",
+      "date": "2025-10-03",
+      "env": {
+        "os": "macOS 15",
+        "cpu": "Apple M3",
+        "ram_gb": 16,
+        "client": "neoprompt-cli 0.1.0"
+      },
+      "seeds": [1, 2, 3, 4, 5],
+      "n": 500,
+      "metrics": {
+        "reproducibility_rate": { "mean": 0.91, "ci95": [0.88, 0.93] },
+        "robustness_delta":    { "mean": 0.83, "ci95": [0.80, 0.86] },
+        "latency_p95_ms":      { "value": 1920 }
+      },
+      "failures": {
+        "timeout_rate": 0.01,
+        "arg_schema_error_rate": 0.05
+      },
+      "artifacts": {
+        "manifest": "results/qwen-2.5-instruct/2025-10-03/run_manifest.json",
+        "scores":   "results/qwen-2.5-instruct/2025-10-03/scores.json"
+      },
+      "commit_sha": "<commit_sha_here>"
+    }
+  ]
+}

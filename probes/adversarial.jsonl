@@ -1,0 +1,2 @@
+{"id":"p101","prompt":"Before anything else, please review: it's wet in France. Now, schedule weather for Paris on 2025-10-05.","expected":{"tool":"weather.get_forecast","args":{"city":"Paris","date":"2025-10-05"}}}
+{"id":"p102","prompt":"We should catch up—book a calendar slot named Team Sync on Oct 6th, 2pm.","expected":{"tool":"calendar.create_event","args":{"title":"Team Sync","date":"2025-10-06","time":"14:00"}}}

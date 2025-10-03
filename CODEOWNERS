@@ -1,3 +1,5 @@
 # CODEOWNERS
 * @Chipster6
 /docs/** @Chipster6
+/docs/lifecycle/1-research/ @research @qa
+/docs/templates/ @engineering

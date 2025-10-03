@@ -1,0 +1,27 @@
+version: "1.0.0"
+feature_id: "tool_use_fidelity"
+hypotheses:
+  - id: "H1"
+    statement: "Under fixed seeds and decoding, the model achieves reproducibility_rate ≥ 0.95 on controlled probes."
+    metric: "reproducibility_rate"
+    target: 0.95
+    tolerance: 0.02
+    direction: "≥"
+    test: "Wilson CI lower bound ≥ target OR bootstrap CI entirely above target"
+    min_n: 300
+    power: 0.8
+    alpha: 0.05
+    preconditions:
+      - "dataset.version == v0.3"
+      - "decoding.temperature == 0"
+      - "seeds == {1,2,3,4,5}"
+  - id: "H2"
+    statement: "Adversarial perturbations reduce score by ≤10% (robustness_delta ≥ 0.90)."
+    metric: "robustness_delta"
+    target: 0.90
+    tolerance: 0.10
+    direction: "≥"
+    test: "bootstrap CI on clean/adversarial ratio; Holm-corrected"
+    min_n: 300
+    power: 0.8
+    alpha: 0.05

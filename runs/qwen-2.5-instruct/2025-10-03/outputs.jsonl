@@ -1,0 +1,4 @@
+{"id":"p001","predicted":{"tool":"weather.get_forecast","args":{"city":"Paris","date":"2025-10-05"}},"elapsed_ms":1700}
+{"id":"p002","predicted":{"tool":"calendar.create_event","args":{"title":"Team Sync","date":"2025-10-06","time":"14:00"}},"elapsed_ms":1810}
+{"id":"p101","predicted":{"tool":"weather.get_forecast","args":{"city":"Paris","date":"2025-10-05"}},"elapsed_ms":1880}
+{"id":"p102","predicted":{"tool":"calendar.create_event","args":{"title":"Team Sync","date":"2025-10-06","time":"14:00"}},"elapsed_ms":1950}

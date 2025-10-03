@@ -1,0 +1,19 @@
+version: "1.0.0"
+feature_id: "tool_use_fidelity"
+pillars:
+  - id: "CP-07"
+    name: "Tool Use Fidelity"
+  - id: "CP-16"
+    name: "Robustness to Noise/Adversarial Inputs"
+risk_domains:
+  - reliability
+  - robustness
+crosslinks:
+  m0:
+    intake_ref: "../0-intake/tool_use_fidelity_intake.md"
+    risks_ref:  "../0-intake/tool_use_fidelity_risks.md"
+    metrics_ref:"../0-intake/tool_use_fidelity_metrics.json"
+  m1:
+    research_ref: "./tool_use_fidelity_research.md"
+    eval_design_ref: "./tool_use_fidelity_eval_design.md"
+container_image: "ghcr.io/chipster6/COGNITIVE_EVALUATION_HARNESS/dev:latest"

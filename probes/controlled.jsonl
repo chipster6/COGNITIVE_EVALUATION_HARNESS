@@ -1,0 +1,2 @@
+{"id":"p001","prompt":"Call weather.get_forecast for city='Paris' and date='2025-10-05'.","expected":{"tool":"weather.get_forecast","args":{"city":"Paris","date":"2025-10-05"}}}
+{"id":"p002","prompt":"Create a calendar event titled 'Team Sync' on 2025-10-06 at 14:00.","expected":{"tool":"calendar.create_event","args":{"title":"Team Sync","date":"2025-10-06","time":"14:00"}}}

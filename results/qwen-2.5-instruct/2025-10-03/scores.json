@@ -1,0 +1,1 @@
+{"feature_id":"tool_use_fidelity","model_id":"qwen-2.5-instruct","date":"2025-10-03","counts":{"total":4,"correct":4},"reproducibility_rate":1.0,"latency_p95_ms":1950,"by_error":{"tool_choice_error":0,"arg_schema_error":0,"timeout":0,"refusal":0}}

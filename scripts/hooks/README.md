@@ -1,0 +1,1 @@
+{"libraries": ["docs/lifecycle/1-research/*_hypotheses.yaml"], "description": "Local schema validation if tools are present."}
