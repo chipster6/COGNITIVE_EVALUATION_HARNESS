@@ -8,4 +8,3 @@ change_control:
   decision_log: ./decision_log.md
   risk_register: ./risks.md
   acceptance_gate: "M0 complete when all files in this folder exist and are committed"
-
