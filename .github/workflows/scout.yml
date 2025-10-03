@@ -14,6 +14,12 @@ jobs:
     steps:
       - name: Compute lowercase repo for GHCR tag
         run: echo "REPO_LC=${GITHUB_REPOSITORY,,}" >> $GITHUB_ENV
+      - name: Docker login to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       - name: Set IMAGE
         run: echo "IMAGE=ghcr.io/${REPO_LC}/dev:latest" >> $GITHUB_ENV
       - name: Trivy vulnerability scan
