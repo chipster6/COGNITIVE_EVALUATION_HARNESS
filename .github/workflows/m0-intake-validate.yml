@@ -1,0 +1,69 @@
+name: M0 Intake Validate
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+permissions:
+  contents: read
+concurrency:
+  group: m0-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  markdownlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DavidAnson/markdownlint-cli2-action@v17
+        with:
+          globs: |
+            **/*.md
+          config: ./.markdownlint.json
+
+  yamllint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ibiqlik/action-yamllint@v3
+        with:
+          config_file: ./.yamllint.yml
+          format: colored
+
+  json_schema_validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - name: Install ajv
+        run: npm i -g ajv-cli@5 ajv-formats@3
+      - name: Convert YAML → JSON
+        uses: mikefarah/yq@v4
+        with:
+          cmd: |
+            yq -o=json docs/lifecycle/0-intake/harness-foundation_governance.yaml > /tmp/hf_gov.json
+            yq -o=json docs/lifecycle/0-intake/harness-foundation_stakeholders.yaml > /tmp/hf_stake.json
+            yq -o=json docs/lifecycle/0-intake/governance.yaml > /tmp/global_gov.json
+      - name: Validate JSON against schemas
+        run: |
+          ajv -c ajv-formats -s docs/templates/governance.schema.json   -d /tmp/hf_gov.json
+          ajv -c ajv-formats -s docs/templates/stakeholders.schema.json -d /tmp/hf_stake.json
+          ajv -c ajv-formats -s docs/templates/governance.schema.json   -d /tmp/global_gov.json
+          ajv -c ajv-formats -s docs/templates/metrics.schema.json      -d docs/lifecycle/0-intake/harness-foundation_metrics.json
+
+  mermaid_check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - name: Install mermaid-cli
+        run: npm i -g @mermaid-js/mermaid-cli@10.9.1
+      - name: Render diagram
+        run: |
+          mkdir -p artifacts
+          mmdc -i docs/lifecycle/0-intake/harness-foundation_dependencies.mmd \
+               -o artifacts/hf_deps.svg -b transparent
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mermaid-artifacts
+          path: artifacts

@@ -1,0 +1,5 @@
+# .gitattributes
+* text=auto eol=lf
+*.json linguist-language=JSON
+*.yaml linguist-language=YAML
+*.yml  linguist-language=YAML

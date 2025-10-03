@@ -1,0 +1,23 @@
+# Feature Registry (21 Cognitive Pillars)
+
+- P01 Abstraction / Gf
+- P02 Stress Decision Quality
+- P03 Working Memory / Context Control
+- P04 Throughput Amplification
+- P05 Transfer Efficiency
+- P06 Communication & Calibration
+- P07 Causality & Counterfactuals
+- P08 Counter-argument & Refutation
+- P09 Self-Verification & Proof Obligations
+- P10 Bayesian Updating
+- P11 Long-Horizon Planning
+- P12 Tool Use Fidelity
+- P13 Symbolic/Math under Load
+- P14 Evidence Grounding & Attribution
+- P15 Temporal & Spatial Reasoning
+- P16 Robustness to Noise/Adversarial
+- P17 Ethical/Policy-Constrained Reasoning
+- P18 Memory Consistency
+- P19 Explainability Quality
+- P20 Cost-Aware Optimization
+- P21 Cross-Domain Transfer

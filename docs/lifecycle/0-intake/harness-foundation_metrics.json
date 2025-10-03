@@ -1,0 +1,5 @@
+{
+  "reproducibility_rate": 0.95,
+  "latency_p95_ms": 2000,
+  "test_coverage": 0.80
+}

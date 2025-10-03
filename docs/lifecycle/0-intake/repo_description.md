@@ -1,0 +1,1 @@
+Production-ready LLM evaluation harness measuring 21 cognitive pillars with deterministic offline scoring. Strict JSON I/O, seeded synthetic data, bootstrap 95% CIs, reliability metrics (KR-20/α), and CI validation. Reproducible, auditable model audits without network egress.

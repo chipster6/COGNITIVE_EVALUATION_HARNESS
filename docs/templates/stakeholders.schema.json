@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["version", "stakeholders"],
+  "properties": {
+    "version": { "type": "string" },
+    "stakeholders": {
+      "type": "object",
+      "required": ["product_owner", "tech_owner", "research_reviewer", "qa_reviewer"],
+      "properties": {
+        "product_owner": { "type": "string", "minLength": 1 },
+        "tech_owner": { "type": "string", "minLength": 1 },
+        "research_reviewer": { "type": "string", "minLength": 1 },
+        "qa_reviewer": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

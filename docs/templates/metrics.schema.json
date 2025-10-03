@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["reproducibility_rate", "latency_p95_ms", "test_coverage"],
+  "properties": {
+    "reproducibility_rate": { "type": "number", "minimum": 0, "maximum": 1 },
+    "latency_p95_ms": { "type": "number", "minimum": 0 },
+    "test_coverage": { "type": "number", "minimum": 0, "maximum": 1 }
+  },
+  "additionalProperties": false
+}

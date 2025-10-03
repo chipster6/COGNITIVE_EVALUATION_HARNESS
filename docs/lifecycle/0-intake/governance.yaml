@@ -1,0 +1,10 @@
+version: "1.0.0"
+owners:
+  product_owner: Chipster6
+  tech_owner: Chipster6
+  research_reviewer: Chipster6
+  qa_reviewer: Chipster6
+change_control:
+  decision_log: ./decision_log.md
+  risk_register: ./risks.md
+  acceptance_gate: "M0 complete when all files in this folder exist and are committed"

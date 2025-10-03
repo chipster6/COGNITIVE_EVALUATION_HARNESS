@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["version", "owners", "change_control"],
+  "properties": {
+    "version": { "type": "string" },
+    "owners": {
+      "type": "object",
+      "required": ["product_owner", "tech_owner", "research_reviewer", "qa_reviewer"],
+      "properties": {
+        "product_owner": { "type": "string", "minLength": 1 },
+        "tech_owner": { "type": "string", "minLength": 1 },
+        "research_reviewer": { "type": "string", "minLength": 1 },
+        "qa_reviewer": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "change_control": {
+      "type": "object",
+      "required": ["decision_log", "risk_register", "acceptance_gate"],
+      "properties": {
+        "decision_log": { "type": "string", "minLength": 1 },
+        "risk_register": { "type": "string", "minLength": 1 },
+        "acceptance_gate": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
