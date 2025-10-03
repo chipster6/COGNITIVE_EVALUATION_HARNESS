@@ -1,7 +1,10 @@
 FROM python:3.11-slim
 ENV PIP_DISABLE_PIP_VERSION_CHECK=1 PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get update \
+ && apt-get -y upgrade \
+ && apt-get install -y --no-install-recommends \
     git curl ca-certificates jq make bash tini gcc \
+ && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 # Node toolchain to mirror CI validators
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
