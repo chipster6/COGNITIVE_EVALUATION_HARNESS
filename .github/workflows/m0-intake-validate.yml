@@ -1,7 +1,7 @@
 name: M0 Intake Validate
 on:
   push:
-    branches: [ "main", "master" ]
+    branches: ["main", "master"]
   pull_request:
 permissions:
   contents: read
@@ -33,7 +33,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: '20' }
+        with: {node-version: '20'}
       - name: Install ajv
         run: npm i -g ajv-cli@5 ajv-formats@3
       - name: Convert YAML → JSON
@@ -45,24 +45,25 @@ jobs:
             yq -o=json docs/lifecycle/0-intake/governance.yaml > /tmp/global_gov.json
       - name: Validate JSON against schemas
         run: |
-          ajv -c ajv-formats -s docs/templates/governance.schema.json   -d /tmp/hf_gov.json
-          ajv -c ajv-formats -s docs/templates/stakeholders.schema.json -d /tmp/hf_stake.json
-          ajv -c ajv-formats -s docs/templates/governance.schema.json   -d /tmp/global_gov.json
-          ajv -c ajv-formats -s docs/templates/metrics.schema.json      -d docs/lifecycle/0-intake/harness-foundation_metrics.json
+          ajv -c ajv-formats --spec=draft2020 -s docs/templates/governance.schema.json   -d /tmp/hf_gov.json
+          ajv -c ajv-formats --spec=draft2020 -s docs/templates/stakeholders.schema.json -d /tmp/hf_stake.json
+          ajv -c ajv-formats --spec=draft2020 -s docs/templates/governance.schema.json   -d /tmp/global_gov.json
+          ajv -c ajv-formats --spec=draft2020 -s docs/templates/metrics.schema.json      -d docs/lifecycle/0-intake/harness-foundation_metrics.json
 
   mermaid_check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: '20' }
+        with: {node-version: '20'}
       - name: Install mermaid-cli
         run: npm i -g @mermaid-js/mermaid-cli@10.9.1
       - name: Render diagram
         run: |
           mkdir -p artifacts
           mmdc -i docs/lifecycle/0-intake/harness-foundation_dependencies.mmd \
-               -o artifacts/hf_deps.svg -b transparent
+               -o artifacts/hf_deps.svg -b transparent \
+               --puppeteerConfigFile puppeteer-config.json
       - uses: actions/upload-artifact@v4
         with:
           name: mermaid-artifacts

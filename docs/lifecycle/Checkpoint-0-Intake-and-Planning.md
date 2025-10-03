@@ -1,6 +1,6 @@
 Restarting at M0. Here is the production-ready artifact.
 
-```
+```markdown
 # NeoPrompt Lifecycle — **Checkpoint M0: Intake & Planning**
 **File:** `docs/lifecycle/Checkpoint-0-Intake-and-Planning.md`  
 **Pattern:** Master doc + modular sub-artifacts under `docs/lifecycle/0-intake/`  
@@ -48,8 +48,8 @@ Establish a governed, measurable intake for any new **Feature / Pillar / Probe F
 ---
 
 ## 5) Repository layout
-```
 
+```text
 /docs/lifecycle/
 
 ├─ Checkpoint-0-Intake-and-Planning.md      # this file
