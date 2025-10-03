@@ -1,8 +1,8 @@
 name: Image Scan
 on:
   workflow_run:
-    workflows: [ "Dev Image" ]
-    types: [ "completed" ]
+    workflows: ["Dev Image"]
+    types: ["completed"]
 permissions:
   contents: read
   packages: read

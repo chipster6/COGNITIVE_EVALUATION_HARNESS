@@ -1,8 +1,8 @@
 name: Dev Image
 on:
   push:
-    branches: [ "main" ]
-    paths: [ ".devcontainer/**" ]
+    branches: ["main"]
+    paths: [".devcontainer/**"]
   workflow_dispatch:
   schedule:
     - cron: '0 6 * * 1'

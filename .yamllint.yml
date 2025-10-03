@@ -1,6 +1,7 @@
 extends: default
 ignore: |
   NEO PROMPT V2/
+  docs/lifecycle/1-research/
 rules:
   line-length: {max: 140}
   document-start: {present: false}
