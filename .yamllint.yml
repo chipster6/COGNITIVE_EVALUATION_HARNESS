@@ -1,4 +1,6 @@
 extends: default
+ignore: |
+  NEO PROMPT V2/
 rules:
   line-length: {max: 140}
   document-start: {present: false}

@@ -17,6 +17,7 @@ jobs:
         with:
           globs: |
             **/*.md
+            !NEO PROMPT V2/**
           config: ./.markdownlint.json
 
   yamllint:
