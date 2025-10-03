@@ -18,11 +18,13 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Compute lowercase repo for GHCR tag
+        run: echo "REPO_LC=${GITHUB_REPOSITORY,,}" >> $GITHUB_ENV
       - uses: docker/build-push-action@v5
         with:
           context: .devcontainer
           file: .devcontainer/Dockerfile
           push: true
-          tags: ghcr.io/${{ github.repository }}/dev:latest
+          tags: ghcr.io/${{ env.REPO_LC }}/dev:latest
           provenance: true
           sbom: true

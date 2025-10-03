@@ -17,10 +17,12 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Compute lowercase repo for GHCR tag
+        run: echo "REPO_LC=${GITHUB_REPOSITORY,,}" >> $GITHUB_ENV
       - uses: docker/scout-action@v1
         with:
           command: cves
-          image: ghcr.io/${{ github.repository }}/dev:latest
+          image: ghcr.io/${{ env.REPO_LC }}/dev:latest
           sarif-file: scout.sarif
           only-severities: critical,high
           exit-code: true
