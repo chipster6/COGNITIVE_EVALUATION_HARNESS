@@ -32,4 +32,5 @@ Deliverables (files in this checkpoint)
 - docs/lifecycle/1-research/<FEATURE>_decision_log.md — Research decisions & alternatives
 
 Acceptance criteria
+
 - ≥6 references; ≥2 hypotheses with numeric targets; eval design; baselines with 95% CIs and env; governance mapping; provenance; uncertainty plan; scope doc; CI green; PR approved by Research + QA; tag research-<FEATURE>-approved.
