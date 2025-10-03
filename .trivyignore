@@ -1,0 +1,6 @@
+# Targeted, temporary ignores only. Prefer fixing at the source (base image or packages).
+# Example entry:
+# CVE-2024-XXXX
+# Reason: false positive / not reachable in dev context; tracked upstream. Remove after base refresh.
+# Expires: 2025-10-10
+# CVE-2024-XXXX
