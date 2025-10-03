@@ -76,15 +76,19 @@ Establish a governed, measurable intake for any new **Feature / Pillar / Probe F
 
 /docs/templates/   # keep synced copies of all templates below
 
-```
+```text
+
 ---
 
 ## 6) Process (atomic)
+
 1. **Create branch**
+
    ```bash
    git checkout -b intake/<FEATURE>
    mkdir -p docs/lifecycle/0-intake docs/templates
-```
+
+```text
 
 2. **Draft Intake Record** → <FEATURE>_intake.md (use template).
     
@@ -196,45 +200,59 @@ Establish a governed, measurable intake for any new **Feature / Pillar / Probe F
 
 ### **docs/lifecycle/0-intake/<FEATURE>_intake.md**
 
-```
+```text
+
 # Intake Record — <FEATURE>
+
 version: 1.0.0
 
 ## One-liner
+
 <≤280 chars problem statement>
 
 ## Why Now
+
 <Strategic justification and timing>
 
 ## Business/Research Value
+
 - <measurable value or hypothesis impact>
 
 ## Success Metrics (machine-readable reference)
+
 See: `./<FEATURE>_metrics.json`
 
 ## Timebox
+
 - Start: <YYYY-MM-DD>
 - Mid-review: <YYYY-MM-DD>
 - End: <YYYY-MM-DD>
 
 ## Dependencies
+
 See: `./<FEATURE>_dependencies.mmd`
 
 ## Risks
+
 See: `./<FEATURE>_risks.md`
 
 ## Stakeholders
+
 See: `./<FEATURE>_stakeholders.yaml`
 
 ## Governance
+
 See: `./<FEATURE>_governance.yaml`
 
 ## Compliance
+
 See: `./<FEATURE>_compliance.md`
 
 ## Decision Log
+
 See: `./<FEATURE>_decision_log.md`
-```
+
+```text
 
 ---
 
@@ -242,7 +260,8 @@ See: `./<FEATURE>_decision_log.md`
 
 ### **docs/lifecycle/0-intake/<FEATURE>_stakeholders.yaml**
 
-```
+```text
+
 version: 1.0.0
 feature_id: "<FEATURE>"
 owner:
@@ -258,11 +277,13 @@ reviewers:
   qa:
     name: "<Full Name>"
     handle: "<github_or_email>"
-```
+
+```text
 
 **Schema (JSON) for CI** — docs/templates/stakeholders.schema.json
 
-```
+```text
+
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
@@ -299,7 +320,8 @@ reviewers:
     }
   }
 }
-```
+
+```text
 
 ---
 
@@ -307,7 +329,8 @@ reviewers:
 
 ### **docs/lifecycle/0-intake/<FEATURE>_timeline.md**
 
-```
+```text
+
 # Timeline — <FEATURE>  (version: 1.0.0)
 
 | Phase | Date        | Gate/Deliverable                       | Owner  |
@@ -318,7 +341,8 @@ reviewers:
 | M3    | YYYY-MM-DD  | Implementation plan complete            | Eng |
 | M4    | YYYY-MM-DD  | Prototype build passes unit tests       | Eng |
 | ...   | ...         | ...                                     | ...    |
-```
+
+```text
 
 ---
 
@@ -326,7 +350,8 @@ reviewers:
 
 ### **docs/lifecycle/0-intake/<FEATURE>_risks.md**
 
-```
+```text
+
 # Risk Register — <FEATURE>  (version: 1.0.0)
 
 | ID | Description                                | Likelihood | Impact | Mitigation                               | Owner   | Status  |
@@ -334,7 +359,8 @@ reviewers:
 | R1 | Dataset license may restrict redistribution| High       | High   | Use licensed alt / host privately         | Research| Open    |
 | R2 | Reviewer bandwidth limited                 | Medium     | Medium | Secondary reviewer pre-assigned           | Owner   | Open    |
 | R3 | External API latency affects baselines     | Medium     | Low    | Cache mocks; set timeout/fallback         | Eng     | Open    |
-```
+
+```text
 
 ---
 
@@ -342,7 +368,8 @@ reviewers:
 
 ### **docs/lifecycle/0-intake/<FEATURE>_metrics.json**
 
-```
+```text
+
 {
   "version": "1.0.0",
   "feature_id": "<FEATURE>",
@@ -373,13 +400,15 @@ reviewers:
     }
   ]
 }
-```
+
+```text
 
 **Schema (JSON) for CI** — docs/templates/metrics.schema.json
 
-```
+```text
+
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schema": "<https://json-schema.org/draft/2020-12/schema>",
   "type": "object",
   "required": ["version", "feature_id", "metrics"],
   "properties": {
@@ -403,7 +432,8 @@ reviewers:
     }
   }
 }
-```
+
+```text
 
 ---
 
@@ -411,14 +441,16 @@ reviewers:
 
 ### **docs/lifecycle/0-intake/<FEATURE>_dependencies.mmd**
 
-```
+```text
+
 graph TD
   F[<FEATURE>] --> H[Evaluation Harness]
   F --> P[Probe Family: <FAMILY_ID>]
   P --> D[(Dataset: <DATASET_ID>)]
   F --> G[Governance: Pillar <PILLAR_ID>]
   F --> C[CI/CD Validators]
-```
+
+```text
 
 ---
 
@@ -426,27 +458,34 @@ graph TD
 
 ### **docs/lifecycle/0-intake/<FEATURE>_governance.yaml**
 
-```
+```text
+
 version: 1.0.0
 feature_id: "<FEATURE>"
 pillars:
-  - id: "CP-07"
+
+- id: "CP-07"
     name: "Tool Use Fidelity"
-  # add more as needed
+
+# add more as needed
+
 risk_domains:
-  - reliability
-  - robustness
+
+- reliability
+- robustness
 crosslinks:
   intake_ref: "./<FEATURE>_intake.md"
   risks_ref: "./<FEATURE>_risks.md"
   metrics_ref: "./<FEATURE>_metrics.json"
-```
+
+```text
 
 **Schema (JSON) for CI** — docs/templates/governance.schema.json
 
-```
+```text
+
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schema": "<https://json-schema.org/draft/2020-12/schema>",
   "type": "object",
   "required": ["version", "feature_id", "pillars", "risk_domains", "crosslinks"],
   "properties": {
@@ -479,7 +518,8 @@ crosslinks:
     }
   }
 }
-```
+
+```text
 
 ---
 
@@ -487,24 +527,30 @@ crosslinks:
 
 ### **docs/lifecycle/0-intake/<FEATURE>_compliance.md**
 
-```
+```text
+
 # Compliance Notes — <FEATURE> (version: 1.0.0)
 
 ## Data Sources
+
 - <dataset id> — license: <spdx or URL>
 - <dataset id> — restricted? yes/no
 
 ## PII / Sensitive Data
+
 - Expected? yes/no
 - Handling: redact, hash, or exclude; no retention in logs.
 
 ## Storage & Retention
+
 - Artifacts: repo only; no raw data.
 - Retention: none beyond samples; delete on merge.
 
 ## Third-party Services
+
 - <service> — purpose — data sent? yes/no — auth method — region
-```
+
+```text
 
 ---
 
@@ -512,10 +558,12 @@ crosslinks:
 
 ### **docs/lifecycle/0-intake/<FEATURE>_decision_log.md**
 
-```
+```text
+
 # Decision Log — <FEATURE> (version: 1.0.0)
 
 ## D-0001: Success metric target levels
+
 - Context: <why>
 - Options considered: <A/B/C>
 - Decision: <chosen>
@@ -524,8 +572,10 @@ crosslinks:
 - Owner: <name>
 
 ## D-0002: Dependency scope
+
 ...
-```
+
+```text
 
 ---
 
@@ -535,7 +585,8 @@ crosslinks:
 
 **File:** .github/workflows/m0-intake-validate.yml
 
-```
+```text
+
 name: M0 Intake Validation
 on:
   pull_request:
@@ -547,18 +598,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - name: Setup Node for schema tools
         uses: actions/setup-node@v4
         with:
           node-version: "22"
-
       - name: Install validators
         run: |
           npm install -g ajv-cli@5.0.0
           pipx install yamllint
           pipx install markdownlint-cli
-
       - name: Lint Markdown
         run: markdownlint "docs/**/*.md" || true  # warn only
 
@@ -582,11 +630,13 @@ jobs:
       - name: Mermaid syntax check
         run: |
           grep -q "graph " docs/lifecycle/0-intake/*_dependencies.mmd
-```
+
+```text
 
 **PR template** — .github/pull_request_template.md
 
-```
+```text
+
 ## M0 Intake Checklist for <FEATURE>
 
 - [ ] Intake record added
@@ -600,13 +650,16 @@ jobs:
 - [ ] Decision log created
 
 Reviewers: @research @engineering @qa
-```
+
+```text
 
 **CODEOWNERS** — CODEOWNERS
 
-```
+```text
+
 docs/lifecycle/0-intake/ @research @engineering @qa
-```
+
+```text
 
 ---
 
@@ -700,14 +753,17 @@ docs/lifecycle/0-intake/ @research @engineering @qa
 
 ### **Quick self-check (paste in repo root)**
 
-```
+```text
+
 FEATURE=<your_feature_id>
 
 # Files
+
 ls docs/lifecycle/Checkpoint-0-Intake-and-Planning.md \
 && ls docs/lifecycle/0-intake/${FEATURE}_{intake.md,stakeholders.yaml,timeline.md,risks.md,metrics.json,dependencies.mmd,governance.yaml,compliance.md,decision_log.md}
 
 # Schema validation (requires ajv-cli, yq)
+
 yq -o=json docs/lifecycle/0-intake/${FEATURE}_stakeholders.yaml | \
   ajv validate -s docs/templates/stakeholders.schema.json -d /dev/stdin
 ajv validate -s docs/templates/metrics.schema.json -d docs/lifecycle/0-intake/${FEATURE}_metrics.json
@@ -715,10 +771,13 @@ yq -o=json docs/lifecycle/0-intake/${FEATURE}_governance.yaml | \
   ajv validate -s docs/templates/governance.schema.json -d /dev/stdin
 
 # Mermaid presence
+
 grep -q "graph " docs/lifecycle/0-intake/${FEATURE}_dependencies.mmd && echo "Mermaid OK"
 
 # Tag present
+
 git tag -l "intake-${FEATURE}-approved"
-```
+
+```text
 
 If every command succeeds and the PR is merged with the tag in place, M0 is complete.

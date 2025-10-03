@@ -8,3 +8,4 @@ change_control:
   decision_log: ./harness-foundation_decision_log.md
   risk_register: ./harness-foundation_risks.md
   acceptance_gate: "Feature intake complete when all 9 files exist and validate"
+

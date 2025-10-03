@@ -1,20 +1,13 @@
 
 Project Instructions — Master Lifecycle Checklist
 
-  
-
 ---
-
-  
 
 This document defines the end-to-end process for adding any new feature, pillar, or probe family to NeoPrompt.
 
 It is reusable: replace tokens like <FEATURE>, <PILLAR_ID>, <FAMILY_ID>, <VERSION> with the actual identifiers.
 
-
 ---
-
-
 
 0) Intake & Planning
 
@@ -23,9 +16,7 @@ It is reusable: replace tokens like <FEATURE>, <PILLAR_ID>, <FAMILY_ID>, <VERSIO
 - Timebox: start date, code freeze, release.
 - Create Linear/GitHub Epic with this checklist pasted in.
 
-
 ---
-
 
 1) Research
 (docs/research/<FEATURE>/)
@@ -53,7 +44,6 @@ It is reusable: replace tokens like <FEATURE>, <PILLAR_ID>, <FAMILY_ID>, <VERSIO
 - Acceptance criteria (what “done” means).
 - Telemetry fields (latency, token counts, seed hash).
 
-
 ---
 
 3)Design
@@ -66,17 +56,13 @@ docs/design/<FEATURE>.md
 - Extensibility (new families, more bands).
 - Design review sign-off.
 
-  
-
 ---
 
 4) Repo Scaffolding / Conventions
 
-- Naming: <PILLAR_ID> lower_snake, <FAMILY_ID> with _v1.
+- Naming: <PILLAR_ID> lower_snake, <FAMILY_ID> with_v1.
 - Version bump plan (SEED_VERSION + package version).
 - Schema locations under neoprompt/schemas/.
-
-  
 
 ---
 
@@ -86,8 +72,6 @@ docs/design/<FEATURE>.md
 - Suite base → examples/<FEATURE>/suite.yml.
 - Expanded suite → examples/<FEATURE>/suite.expanded.json.
 - Fixtures → tests/fixtures/corpus/*.txt (if needed).
-
-  
 
 ---
 
@@ -101,7 +85,6 @@ docs/design/<FEATURE>.md
 - Runner hookups (executor, validator, manifest support).
 - CLI integration (e.g. examples/run_evaluation.py).
 
-
 ---
 
 7) Tests
@@ -114,7 +97,6 @@ docs/design/<FEATURE>.md
 - Invariants: no-network, seed hash uniqueness.
 - Coverage ≥80%.
 
-  
 ---
 
 8) Reports & Artifacts
@@ -123,8 +105,6 @@ docs/design/<FEATURE>.md
 - Developer JSON report includes pillar metrics, CIs, counts.
 - Enterprise Markdown report includes table rows and status icons.
 - Golden outputs saved under examples/<FEATURE>/goldens/.
-
-  
 
 ---
 
@@ -135,8 +115,6 @@ docs/design/<FEATURE>.md
 - CHANGELOG entry.
 - Glossary update.
 
-  
-
 ---
 
 10) CI/CD & Quality Gates
@@ -146,9 +124,6 @@ docs/design/<FEATURE>.md
 - Branch protection: required checks enabled.
 - PR template enforces: tests, docs, schema, examples, golden updated.
 
-  
-
-
 ---
 
 11) Release & Versioning
@@ -156,8 +131,6 @@ docs/design/<FEATURE>.md
 - Bump package version <VERSION>.
 - Tag v<VERSION> with release notes.
 - Attach sample reports (JSON + Markdown).
-
-  
 
 ---
 
@@ -168,16 +141,13 @@ docs/design/<FEATURE>.md
 - Ownership: update CODEOWNERS.
 - Backfill: run on baseline model(s), commit artifacts under examples/<FEATURE>/runs/.
 
-  
 ---
 
-13) SaaS Layer Hooks (future) 
+13) SaaS Layer Hooks (future)
 
 - API contract for ingesting manifests/scores.
 - Dashboard tile definitions.
 - Multi-run comparison views.
-
-  
 
 ---
 
@@ -187,14 +157,9 @@ docs/design/<FEATURE>.md
 - Safety FSM rules updated.
 - Degradation/AUC metrics wired to pillar view.
 
-  
-
-
 ---
 
 Reusable File/Path Template
-
-  
 
 ```
 docs/
@@ -258,14 +223,7 @@ examples/<FEATURE>/
 
 ```
   
-
-  
-
 PR Template Snippet
-
-  
-
-  
 
 - Scope & non-goals documented (docs/specs/<FEATURE>.md).
 - Schemas added/updated (neoprompt/schemas/<FAMILY_ID>.json).
@@ -276,11 +234,8 @@ PR Template Snippet
 - Determinism & no-network tests pass.
 - CHANGELOG entry & version bump (if releasing).
 
-  
-
 ---
   
-
 Definition of Done (per feature)
 
 - Deterministic probe generation with bands.
@@ -293,10 +248,6 @@ Definition of Done (per feature)
 - CI green with coverage gate.
 - Release notes prepared (if tagging).
 
-  
-
 ---
 
-
 This file should live as PROJECT_INSTRUCTIONS.md in the repo root.
-

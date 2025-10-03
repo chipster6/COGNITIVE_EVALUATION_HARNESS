@@ -2,23 +2,28 @@
 
 ## One-liner
 
-Establish deterministic, offline-first scaffolding, schemas, and CI gates for the evaluation harness.
+Seed, schemas, CI, and governance to make the harness buildable and testable from M0.
 
 ## Scope
 
-- Global governance and intake assets
-- Schemas, minimal CI validation, deterministic project defaults
+- Global governance and intake package
+- Probe generators, scorers, runner skeleton stubs
+- Schemas and CI validation jobs
 
 ## Out-of-scope
 
-- Probe generators, scorers, runtime code (later milestones)
+- Model adapters
+- Full probe families
+- Reporting UI
 
 ## Dependencies
 
 - GitHub Actions availability
-- Node toolchain in CI jobs
+- Repository default branch = `main`
 
 ## Acceptance criteria
 
-- All 9 intake files present and validated in CI
-- CI succeeds on markdown, yaml, schema, and mermaid checks
+- All 9 intake files present and committed
+- CI green on markdownlint, yamllint, ajv, mermaid
+- Governance and stakeholders validate against schemas
+- Mermaid dependency diagram artifact uploaded

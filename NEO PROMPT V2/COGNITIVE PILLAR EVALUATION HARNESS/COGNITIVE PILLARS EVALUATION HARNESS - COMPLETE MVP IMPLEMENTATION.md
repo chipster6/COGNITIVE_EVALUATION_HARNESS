@@ -4,7 +4,7 @@
 
 # ============================================================================
 
-# This file contains the complete implementation including:
+# This file contains the complete implementation including
 
 # 1. Core utilities (seed derivation, uncertainty metrics)
 
@@ -510,6 +510,7 @@ raise NotImplementedError("Tool use probe generation - implement in Phase 1 Week
 def score_tool_use_probe(probe, model_output: Dict[str, Any]) -> Dict[str, Any]:
 “””
 Score tool use with:
+
 - Correct call rate
 - Argument precision
 - Unnecessary call penalty (−0.02 per extra call)
@@ -549,6 +550,7 @@ raise NotImplementedError("Grounding probe generation - implement in Phase 1 Wee
 def score_grounding_probe(probe, model_output: Dict[str, Any]) -> Dict[str, Any]:
 “””
 Score grounding with:
+
 - Precision@3 on span boundaries
 - Unsupported claim rate
 
@@ -586,6 +588,7 @@ raise NotImplementedError("Robustness probe generation - implement in Phase 1 We
 def score_robustness_probe(probe, model_output: Dict[str, Any]) -> Dict[str, Any]:
 “””
 Score robustness with:
+
 - AUC under accuracy-vs-noise curve
 - Jailbreak leakage rate
 
@@ -1002,6 +1005,7 @@ finally:
 # ============================================================================
 
 ## “””
+
 SETUP:
 
 1. Create directory structure:
@@ -1014,15 +1018,15 @@ SETUP:
 4. Create examples/suite.yml with the YAML content above
 5. Create neoprompt/schemas/wm_bags_v1.json with the schema above
 
-## RUN EVALUATION:
+## RUN EVALUATION
 
 python examples/run_evaluation.py
 
-## RUN TESTS:
+## RUN TESTS
 
 pytest tests/unit/test_wm_probe.py -v
 
-## EXPECTED OUTPUT:
+## EXPECTED OUTPUT
 
 # Cognitive Pillars Evaluation Harness - MVP Demo
 
@@ -1045,7 +1049,7 @@ Working Memory Score: 100.0
 ============================================================
 Evaluation complete!
 
-## NEXT STEPS:
+## NEXT STEPS
 
 1. Review report.dev.json for detailed metrics
 2. Implement remaining MVP pillars (Gf, Tool Use, Grounding, Robustness)
